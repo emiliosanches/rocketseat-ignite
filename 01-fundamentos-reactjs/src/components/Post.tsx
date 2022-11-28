@@ -1,14 +1,27 @@
 import { format, formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
-export function Post({ author, publishedAt, content }) {
+interface PostProps {
+  author: {
+    name: string;
+    avatarUrl: string;
+    role: string;
+  };
+  publishedAt: Date;
+  content: Array<{
+    type: "paragraph" | "link";
+    content: string;
+  }>;
+}
+
+export function Post({ author, publishedAt, content }: PostProps) {
   const publishedAgo = formatDistanceToNow(publishedAt, {
     locale: ptBR,
-    addSuffix: "há",
+    addSuffix: true,
   });
 
   const publishDateFormatted = format(
@@ -24,12 +37,12 @@ export function Post({ author, publishedAt, content }) {
   ]);
   const [newCommentText, setNewCommentText] = useState("");
 
-  function handleNewCommentChange(evt) {
+  function handleNewCommentChange(evt: ChangeEvent<HTMLTextAreaElement>) {
     evt.target.setCustomValidity("");
     setNewCommentText(evt.target.value);
   }
 
-  function handlePublishComment(evt) {
+  function handlePublishComment(evt: FormEvent) {
     evt.preventDefault();
     setComments((c) => [
       ...c,
@@ -41,11 +54,11 @@ export function Post({ author, publishedAt, content }) {
     setNewCommentText("");
   }
 
-  function deleteComment(id) {
+  function deleteComment(id: number) {
     setComments((data) => data.filter((comment) => comment.id !== id));
   }
 
-  function handleInvalidNewComment(evt) {
+  function handleInvalidNewComment(evt: InvalidEvent<HTMLTextAreaElement>) {
     evt.target.setCustomValidity("Esse campo é obrigatório!");
   }
 
