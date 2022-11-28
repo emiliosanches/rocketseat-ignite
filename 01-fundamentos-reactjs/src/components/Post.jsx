@@ -1,53 +1,69 @@
+import { format, formatDistanceToNow } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
+import { useState } from "react";
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
-export function Post() {
+export function Post({ author, publishedAt, content }) {
+  const publishedAgo = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: "há",
+  });
+
+  const publishDateFormatted = format(
+    publishedAt,
+    "d 'de' LLLL 'de' yyyy 'às' HH:mm",
+    {
+      locale: ptBR,
+    }
+  );
+
+  const [comments, setComments] = useState(["Post muito bom! Parabéns!"]);
+  const [newCommentText, setNewCommentText] = useState([""]);
+
+  function handlePublishComment(evt) {
+    evt.preventDefault();
+    setComments((c) => [newCommentText, ...c]);
+    setNewCommentText("");
+  }
+
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar src="https://github.com/emiliosanches.png" />
+          <Avatar src={author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>Emilio Sanches</strong>
-            <span>Full-Stack Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
-        <time title="26 de novembro às 21:47" dateTime="2022-11-26 21:47:17">
-          Publicado há 1 hora
+        <time title={publishDateFormatted} dateTime={publishedAt.toISOString()}>
+          {publishedAgo}
         </time>
       </header>
 
       <div className={styles.content}>
-        <p>E aí, galera! Beleza?</p>
-
-        <p>
-          Criando mais um projeto pro meu GitHub! Esse aqui é uma interface de
-          blog desenvolvida em ReactJS.
-        </p>
-
-        <p>
-          Esse é o primeiro projeto que estou desenvolvendo através do Ignite da
-          Rocketseat! Em breve haverão muitos outros.
-        </p>
-
-        <p>
-          Meu github:{" "}
-          <a href="https://github.com/emiliosanches">
-            https://github.com/emiliosanches
-          </a>
-        </p>
-
-        <p>
-          <a href="#">#ReactJS</a> <a href="#">#Estudos</a>{" "}
-          <a href="#">#Ignite</a> <a href="#">#Rocketseat</a>
-        </p>
+        {content.map((line, i) =>
+          line.type === "link" ? (
+            <p key={line.content}>
+              <a href="">{line.content}</a>
+            </p>
+          ) : (
+            <p key={line.content}>{line.content}</p>
+          )
+        )}
       </div>
 
-      <form className={styles.commentForm}>
+      <form onSubmit={handlePublishComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
 
-        <textarea placeholder="Deixe um comentário" />
+        <textarea
+          value={newCommentText}
+          onChange={(e) => setNewCommentText(e.target.value)}
+          name="content"
+          placeholder="Deixe um comentário"
+        />
 
         <footer>
           <button type="submit">Publicar</button>
@@ -55,9 +71,9 @@ export function Post() {
       </form>
 
       <div className={styles.commentsList}>
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map((c, i) => (
+          <Comment content={c} key={c} />
+        ))}
       </div>
     </article>
   );
