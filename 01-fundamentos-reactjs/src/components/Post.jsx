@@ -19,13 +19,25 @@ export function Post({ author, publishedAt, content }) {
     }
   );
 
-  const [comments, setComments] = useState(["Post muito bom! Parabéns!"]);
+  const [comments, setComments] = useState([
+    { id: 1, content: "Post muito bom! Parabéns!" },
+  ]);
   const [newCommentText, setNewCommentText] = useState([""]);
 
   function handlePublishComment(evt) {
     evt.preventDefault();
-    setComments((c) => [newCommentText, ...c]);
+    setComments((c) => [
+      ...c,
+      {
+        id: c.length + 1,
+        content: newCommentText,
+      },
+    ]);
     setNewCommentText("");
+  }
+
+  function deleteComment(id) {
+    setComments((data) => data.filter((comment) => comment.id !== id));
   }
 
   return (
@@ -44,7 +56,7 @@ export function Post({ author, publishedAt, content }) {
       </header>
 
       <div className={styles.content}>
-        {content.map((line, i) =>
+        {content.map((line) =>
           line.type === "link" ? (
             <p key={line.content}>
               <a href="">{line.content}</a>
@@ -71,8 +83,13 @@ export function Post({ author, publishedAt, content }) {
       </form>
 
       <div className={styles.commentsList}>
-        {comments.map((c, i) => (
-          <Comment content={c} key={c} />
+        {comments.map(({ content, id }) => (
+          <Comment
+            key={id}
+            id={id}
+            content={content}
+            deleteComment={deleteComment}
+          />
         ))}
       </div>
     </article>
