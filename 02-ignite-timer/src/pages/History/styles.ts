@@ -60,3 +60,31 @@ export const HistoryList = styled.main`
     }
   }
 `
+
+const STATUS_OPTIONS = {
+  done: { text: 'Concluído', color: 'green-500' },
+  in_progress: { text: 'Em andamento', color: 'yellow-500' },
+  cancelled: { text: 'Interrompido', color: 'red-500' },
+} as const
+
+interface StatusProps {
+  status: keyof typeof STATUS_OPTIONS
+}
+
+export const Status = styled.span<StatusProps>`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: ${(props) => props.theme[STATUS_OPTIONS[props.status].color]};
+  }
+
+  &::after {
+    content: '${(props) => STATUS_OPTIONS[props.status].text}';
+  }
+`
