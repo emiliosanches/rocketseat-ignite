@@ -12,7 +12,7 @@ import {
   StartCountdownButton,
   TaskInput,
 } from './styles'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const newCycleFormSchema = zod.object({
   task: zod.string().min(1, 'Informe a tarefa'),
@@ -28,13 +28,28 @@ interface Cycle {
   id: string;
   task: string;
   minutesAmount: number;
+  startTime: number;
 }
 
 export function Home() {
   const [cycles, setCycles] = useState<Cycle[]>([]);
   const [activeCycleId, setActiveCycleId] = useState<string | null>(null);
+  const [secondsPassedAmount, setSecondsPassedAmount] = useState(0);
 
   const activeCycle = cycles.find(cycle => cycle.id === activeCycleId);
+
+  useEffect(() => {
+    if (activeCycle) 
+      setInterval(() => {
+        setSecondsPassedAmount(Math.floor((new Date().getTime() - activeCycle.startTime) / 1000));
+      }, 500)
+  }, [activeCycle])
+
+  const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
+  const currentSeconds = activeCycle ? totalSeconds - secondsPassedAmount : 0
+
+  const minutesInTimer = Math.floor(currentSeconds / 60)
+  const secondsInTimer = currentSeconds % 60
 
   const { register, handleSubmit, watch, reset } = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormSchema),
@@ -44,13 +59,12 @@ export function Home() {
     }
   });
 
-  const isSubmitDisabled = !watch('task');
-
   function handleCreateNewCycle(data: NewCycleFormData) {
     const newCycle: Cycle = {
       id: String(new Date().getTime()),
       task: data.task,
       minutesAmount: data.minutesAmount,
+      startTime: new Date().getTime()
     }
 
     setCycles((prev) => [...prev, newCycle])
@@ -58,6 +72,8 @@ export function Home() {
 
     reset()
   }
+  
+  const isSubmitDisabled = !watch('task');
 
   return (
     <HomeContainer>
@@ -94,11 +110,11 @@ export function Home() {
         </FormContainer>
 
         <CountdownContainer>
-          <span>0</span>
-          <span>0</span>
+          <span>{minutesInTimer.toString().padStart(2, '0')[0]}</span>
+          <span>{minutesInTimer.toString().padStart(2, '0')[1]}</span>
           <Separator>:</Separator>
-          <span>0</span>
-          <span>0</span>
+          <span>{secondsInTimer.toString().padStart(2, '0')[0]}</span>
+          <span>{secondsInTimer.toString().padStart(2, '0')[1]}</span>
         </CountdownContainer>
 
         <StartCountdownButton disabled={isSubmitDisabled} type="submit">
