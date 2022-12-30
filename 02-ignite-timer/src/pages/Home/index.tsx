@@ -39,10 +39,16 @@ export function Home() {
   const activeCycle = cycles.find(cycle => cycle.id === activeCycleId);
 
   useEffect(() => {
+    let interval: number; 
+
     if (activeCycle) 
-      setInterval(() => {
+      interval = setInterval(() => {
         setSecondsPassedAmount(Math.floor((new Date().getTime() - activeCycle.startTime) / 1000));
       }, 500)
+
+    return () => {
+      clearInterval(interval)
+    }
   }, [activeCycle])
 
   const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
@@ -69,6 +75,8 @@ export function Home() {
 
     setCycles((prev) => [...prev, newCycle])
     setActiveCycleId(newCycle.id)
+
+    setSecondsPassedAmount(0)
 
     reset()
   }
