@@ -12,6 +12,7 @@ import {
   StartCountdownButton,
   TaskInput,
 } from './styles'
+import { useState } from 'react';
 
 const newCycleFormSchema = zod.object({
   task: zod.string().min(1, 'Informe a tarefa'),
@@ -23,7 +24,18 @@ const newCycleFormSchema = zod.object({
 
 type NewCycleFormData = zod.infer<typeof newCycleFormSchema>
 
+interface Cycle {
+  id: string;
+  task: string;
+  minutesAmount: number;
+}
+
 export function Home() {
+  const [cycles, setCycles] = useState<Cycle[]>([]);
+  const [activeCycleId, setActiveCycleId] = useState<string | null>(null);
+
+  const activeCycle = cycles.find(cycle => cycle.id === activeCycleId);
+
   const { register, handleSubmit, watch, reset } = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormSchema),
     defaultValues: {
@@ -35,8 +47,16 @@ export function Home() {
   const isSubmitDisabled = !watch('task');
 
   function handleCreateNewCycle(data: NewCycleFormData) {
+    const newCycle: Cycle = {
+      id: String(new Date().getTime()),
+      task: data.task,
+      minutesAmount: data.minutesAmount,
+    }
+
+    setCycles((prev) => [...prev, newCycle])
+    setActiveCycleId(newCycle.id)
+
     reset()
-    console.log(data);
   }
 
   return (
