@@ -28,6 +28,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@hookform/resolvers", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:2.9.10"],\
             ["@rocketseat/eslint-config", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:1.1.3"],\
             ["@types/react", "npm:18.0.26"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -42,7 +43,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-router-dom", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:6.4.5"],\
             ["styled-components", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:5.3.6"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
-            ["vite", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:3.2.4"]\
+            ["vite", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:3.2.4"],\
+            ["zod", "npm:3.20.2"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -52,6 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["02-ignite-timer", "workspace:."],\
+            ["@hookform/resolvers", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:2.9.10"],\
             ["@rocketseat/eslint-config", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:1.1.3"],\
             ["@types/react", "npm:18.0.26"],\
             ["@types/react-dom", "npm:18.0.10"],\
@@ -66,7 +69,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-router-dom", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:6.4.5"],\
             ["styled-components", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:5.3.6"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
-            ["vite", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:3.2.4"]\
+            ["vite", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:3.2.4"],\
+            ["zod", "npm:3.20.2"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -591,6 +595,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@gar-promisify-npm-1.1.3-ac1a325862-4059f790e2.zip/node_modules/@gar/promisify/",\
           "packageDependencies": [\
             ["@gar/promisify", "npm:1.1.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@hookform/resolvers", [\
+        ["npm:2.9.10", {\
+          "packageLocation": "./.yarn/cache/@hookform-resolvers-npm-2.9.10-940efb71c1-ae3395372d.zip/node_modules/@hookform/resolvers/",\
+          "packageDependencies": [\
+            ["@hookform/resolvers", "npm:2.9.10"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:2.9.10", {\
+          "packageLocation": "./.yarn/__virtual__/@hookform-resolvers-virtual-4e10aea838/0/cache/@hookform-resolvers-npm-2.9.10-940efb71c1-ae3395372d.zip/node_modules/@hookform/resolvers/",\
+          "packageDependencies": [\
+            ["@hookform/resolvers", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:2.9.10"],\
+            ["@types/react-hook-form", null],\
+            ["react-hook-form", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:7.41.2"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-hook-form",\
+            "react-hook-form"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5150,6 +5176,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yocto-queue-npm-0.1.0-c6c9a7db29-f77b3d8d00.zip/node_modules/yocto-queue/",\
           "packageDependencies": [\
             ["yocto-queue", "npm:0.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["zod", [\
+        ["npm:3.20.2", {\
+          "packageLocation": "./.yarn/cache/zod-npm-3.20.2-faa0b46f24-04172f7e93.zip/node_modules/zod/",\
+          "packageDependencies": [\
+            ["zod", "npm:3.20.2"]\
           ],\
           "linkType": "HARD"\
         }]\
