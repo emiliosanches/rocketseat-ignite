@@ -19,7 +19,7 @@ const newCycleFormSchema = zod.object({
   task: zod.string().min(1, "Informe a tarefa"),
   minutesAmount: zod
     .number()
-    .min(5, "O ciclo precisa ter no mínimo 5 minutos")
+    .min(1, "O ciclo precisa ter no mínimo 5 minutos")
     .max(60, "O ciclo precisa ter no máximo 60 minutos"),
 });
 
@@ -31,6 +31,7 @@ interface Cycle {
   minutesAmount: number;
   startTime: number;
   interruptedAt?: Date;
+  finishedAt?: Date;
 }
 
 export function Home() {
@@ -52,17 +53,31 @@ export function Home() {
   useEffect(() => {
     let interval: number;
 
-    if (activeCycle)
+    if (activeCycle) 
       interval = setInterval(() => {
-        setSecondsPassedAmount(
-          Math.floor((new Date().getTime() - activeCycle.startTime) / 1000)
+        const elapsedTime = Math.floor(
+          (new Date().getTime() - activeCycle.startTime) / 1000
         );
+
+        if (elapsedTime >= totalSeconds) {
+          setActiveCycleId(null);
+          setCycles((prev) =>
+            prev.map((cycle) => {
+              if (cycle.id === activeCycleId)
+                return { ...cycle, finishedAt: new Date() };
+              else return cycle;
+            })
+          );
+
+          setSecondsPassedAmount(totalSeconds);
+          clearInterval(interval);
+        } else setSecondsPassedAmount(elapsedTime);
       }, 500);
 
     return () => {
       clearInterval(interval);
     };
-  }, [activeCycle]);
+  }, [activeCycle, totalSeconds, activeCycleId]);
 
   useEffect(() => {
     if (activeCycle) document.title = `${minutesDisplay}:${secondsDisplay}`;
@@ -97,15 +112,13 @@ export function Home() {
     setCycles((prev) =>
       prev.map((cycle) => {
         if (cycle.id === activeCycleId)
-          return { ...cycle, interruptedAt: new Date() }
-        else return cycle
+          return { ...cycle, interruptedAt: new Date() };
+        else return cycle;
       })
     );
   }
 
   const isSubmitDisabled = !watch("task");
-
-  console.log(cycles);
 
   return (
     <HomeContainer>
@@ -132,7 +145,7 @@ export function Home() {
             id="minutesAmount"
             placeholder="00"
             step={5}
-            min={5}
+            min={1}
             max={60}
             disabled={!!activeCycle}
             {...register("minutesAmount", {
