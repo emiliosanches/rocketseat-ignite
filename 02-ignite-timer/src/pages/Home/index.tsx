@@ -38,6 +38,15 @@ export function Home() {
 
   const activeCycle = cycles.find(cycle => cycle.id === activeCycleId);
 
+  const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
+  const currentSeconds = activeCycle ? totalSeconds - secondsPassedAmount : 0
+
+  const minutesInTimer = Math.floor(currentSeconds / 60)
+  const secondsInTimer = currentSeconds % 60
+
+  const minutesDisplay = minutesInTimer.toString().padStart(2, '0');
+  const secondsDisplay = secondsInTimer.toString().padStart(2, '0');
+
   useEffect(() => {
     let interval: number; 
 
@@ -51,11 +60,10 @@ export function Home() {
     }
   }, [activeCycle])
 
-  const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
-  const currentSeconds = activeCycle ? totalSeconds - secondsPassedAmount : 0
-
-  const minutesInTimer = Math.floor(currentSeconds / 60)
-  const secondsInTimer = currentSeconds % 60
+  useEffect(() => {
+    if (activeCycle)
+      document.title = `${minutesDisplay}:${secondsDisplay}`
+  }, [minutesDisplay, secondsDisplay])
 
   const { register, handleSubmit, watch, reset } = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormSchema),
@@ -118,11 +126,11 @@ export function Home() {
         </FormContainer>
 
         <CountdownContainer>
-          <span>{minutesInTimer.toString().padStart(2, '0')[0]}</span>
-          <span>{minutesInTimer.toString().padStart(2, '0')[1]}</span>
+          <span>{minutesDisplay[0]}</span>
+          <span>{minutesDisplay[1]}</span>
           <Separator>:</Separator>
-          <span>{secondsInTimer.toString().padStart(2, '0')[0]}</span>
-          <span>{secondsInTimer.toString().padStart(2, '0')[1]}</span>
+          <span>{secondsDisplay[0]}</span>
+          <span>{secondsDisplay[1]}</span>
         </CountdownContainer>
 
         <StartCountdownButton disabled={isSubmitDisabled} type="submit">
