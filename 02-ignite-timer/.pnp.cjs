@@ -34,6 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.0.10"],\
             ["@types/styled-components", "npm:5.1.26"],\
             ["@vitejs/plugin-react", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:2.2.0"],\
+            ["date-fns", "npm:2.29.3"],\
             ["eslint", "npm:8.29.0"],\
             ["phosphor-react", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:1.4.1"],\
             ["react", "npm:18.2.0"],\
@@ -60,6 +61,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.0.10"],\
             ["@types/styled-components", "npm:5.1.26"],\
             ["@vitejs/plugin-react", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:2.2.0"],\
+            ["date-fns", "npm:2.29.3"],\
             ["eslint", "npm:8.29.0"],\
             ["phosphor-react", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:1.4.1"],\
             ["react", "npm:18.2.0"],\
@@ -1727,6 +1729,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/damerau-levenshtein-npm-1.0.8-bda7311c69-d240b77575.zip/node_modules/damerau-levenshtein/",\
           "packageDependencies": [\
             ["damerau-levenshtein", "npm:1.0.8"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["date-fns", [\
+        ["npm:2.29.3", {\
+          "packageLocation": "./.yarn/cache/date-fns-npm-2.29.3-fef7e3c72c-e01cf5b62a.zip/node_modules/date-fns/",\
+          "packageDependencies": [\
+            ["date-fns", "npm:2.29.3"]\
           ],\
           "linkType": "HARD"\
         }]\
