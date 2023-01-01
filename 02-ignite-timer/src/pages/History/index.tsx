@@ -1,6 +1,10 @@
+import { useContext } from 'react'
+import { CyclesContext } from '../../contexts/CyclesContext'
 import { HistoryContainer, HistoryList, Status } from './styles'
 
 export function History() {
+  const { cycles } = useContext(CyclesContext)
+
   return (
     <HistoryContainer>
       <h1>History</h1>
@@ -16,49 +20,19 @@ export function History() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Tarefa</td>
-              <td>20:00</td>
-              <td>Há 2 meses</td>
-              <td>
-                <Status status="in_progress" />
-              </td>
-            </tr>
-            <tr>
-              <td>Tarefa</td>
-              <td>20:00</td>
-              <td>Há 2 meses</td>
-              <td>
-                <Status status="done" />
-              </td>
-            </tr>
-            <tr>
-              <td>Tarefa</td>
-              <td>20:00</td>
-              <td>Há 2 meses</td>
-              <td>
-                <Status status="cancelled" />
-              </td>
-            </tr>
-            <tr>
-              <td>Tarefa</td>
-              <td>20:00</td>
-              <td>Há 2 meses</td>
-              <td>
-                <Status status="done" />
-              </td>
-            </tr>
-            <tr>
-              <td>Tarefa</td>
-              <td>20:00</td>
-              <td>Há 2 meses</td>
-              <td>
-                <Status status="done" />
-              </td>
-            </tr>
+            {cycles.map((cycle) => (
+              <tr key={cycle.id}>
+                <td>{cycle.task}</td>
+                <td>{cycle.minutesAmount} minutos</td>
+                <td>{new Date(cycle.startTime).toISOString()}</td>
+                <td>
+                  <Status status={cycle.finishedAt ? 'done' : cycle.interruptedAt ? 'cancelled' : 'in_progress'} />
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </HistoryList>
     </HistoryContainer>
-  )
+  );
 }
