@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { CyclesContext } from "../..";
+import { useContext, useEffect } from "react";
+import { CyclesContext } from "../../../../contexts/CyclesContext";
 import { CountdownContainer, Separator } from "./styles";
 
 export function Countdown() {
