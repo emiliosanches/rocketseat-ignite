@@ -47,12 +47,19 @@ export function CyclesContextProvider({
       }
     }
   );
-  
-  const [secondsPassedAmount, setSecondsPassedAmount] = useState(0);
-  
   const { cycles, activeCycleId } = cyclesState;
 
   const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId);
+
+  const [secondsPassedAmount, setSecondsPassedAmount] = useState(() => {
+    if (activeCycle) {
+      return Math.floor(
+        (new Date().getTime() - activeCycle.startTime.getTime()) / 1000
+      );
+    }
+
+    return 0;
+  });
 
   function updateSecondsPassedAmount(amount: number) {
     setSecondsPassedAmount(amount);
