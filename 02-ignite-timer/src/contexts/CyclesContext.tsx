@@ -38,6 +38,7 @@ export function CyclesContextProvider({
       if (storedState) {
         const parsedState = JSON.parse(storedState);
         parsedState.cycles.forEach((cycle: Cycle) => {
+          cycle.startTime = new Date(cycle.startTime);
           if (cycle.interruptedAt) cycle.interruptedAt = new Date(cycle.interruptedAt);
           if (cycle.finishedAt) cycle.finishedAt = new Date(cycle.finishedAt);
         })
@@ -66,7 +67,7 @@ export function CyclesContextProvider({
       id: String(new Date().getTime()),
       task: data.task,
       minutesAmount: data.minutesAmount,
-      startTime: new Date().getTime(),
+      startTime: new Date()
     };
 
     dispatch(addNewCycleAction(newCycle));

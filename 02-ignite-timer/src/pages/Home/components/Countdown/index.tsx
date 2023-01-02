@@ -26,7 +26,7 @@ export function Countdown() {
     if (activeCycle)
       interval = setInterval(() => {
         const elapsedTime = Math.floor(
-          (new Date().getTime() - activeCycle.startTime) / 1000
+          (new Date().getTime() - activeCycle.startTime.getTime()) / 1000
         );
 
         if (elapsedTime >= totalSeconds) {
