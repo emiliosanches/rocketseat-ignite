@@ -1,5 +1,14 @@
-import { Cycle } from "../../contexts/CyclesContext";
+import { produce } from "immer";
 import { ActionType } from "./actions";
+
+export interface Cycle {
+  id: string;
+  task: string;
+  minutesAmount: number;
+  startTime: number;
+  interruptedAt?: Date;
+  finishedAt?: Date;
+}
 
 interface CyclesState {
   cycles: Cycle[];
@@ -9,33 +18,38 @@ interface CyclesState {
 export function cyclesReducer(state: CyclesState, action: any) {
   switch (action.type) {
     case ActionType.ADD_NEW_CYCLE:
-      return {
-        ...state,
-        cycles: [...state.cycles, action.payload.newCycle],
-        activeCycleId: action.payload.newCycle.id,
-      };
-    case ActionType.MARK_CYCLE_AS_FINISHED:
-      return {
-        ...state,
-        cycles: state.cycles.map((cycle) => {
-          if (cycle.id === action.payload.cycleId) {
-            return { ...cycle, finishedAt: new Date() };
-          }
-          return cycle;
-        }),
-        activeCycleId: null,
-      };
-    case ActionType.INTERRUPT_CYCLE:
-      return {
-        ...state,
-        cycles: state.cycles.map((cycle) => {
-          if (cycle.id === action.payload.cycleId) {
-            return { ...cycle, interruptedAt: new Date() };
-          }
-          return cycle;
-        }),
-        activeCycleId: null,
-      };
+      return produce(state, (draft) => {
+        draft.cycles.push(action.payload.newCycle);
+        draft.activeCycleId = action.payload.newCycle.id;
+      });
+    case ActionType.MARK_CYCLE_AS_FINISHED: {
+      const currentCycleIndex = state.cycles.findIndex(
+        (cycle) => cycle.id === action.payload.cycleId
+      );
+
+      if (currentCycleIndex < 0) {
+        return state;
+      }
+
+      return produce(state, (draft) => {
+        draft.activeCycleId = null;
+        draft.cycles[currentCycleIndex].finishedAt = new Date();
+      });
+    }
+    case ActionType.INTERRUPT_CYCLE: {
+      const currentCycleIndex = state.cycles.findIndex(
+        (cycle) => cycle.id === action.payload.cycleId
+      );
+
+      if (currentCycleIndex < 0) {
+        return state;
+      }
+
+      return produce(state, (draft) => {
+        draft.activeCycleId = null;
+        draft.cycles[currentCycleIndex].interruptedAt = new Date();
+      });
+    }
   }
 
   return state;

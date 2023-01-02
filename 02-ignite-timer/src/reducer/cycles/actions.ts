@@ -1,4 +1,4 @@
-import { Cycle } from "../../contexts/CyclesContext";
+import { Cycle } from "./reducer";
 
 export enum ActionType {
   ADD_NEW_CYCLE = "ADD_NEW_CYCLE",
@@ -15,7 +15,7 @@ export function addNewCycleAction(newCycle: Cycle) {
   };
 }
 
-export function markCycleAsFinishedAction(cycleId: string) {
+export function markCycleAsFinishedAction(cycleId: string | null) {
   return {
     type: ActionType.MARK_CYCLE_AS_FINISHED,
     payload: {
@@ -24,7 +24,7 @@ export function markCycleAsFinishedAction(cycleId: string) {
   };
 }
 
-export function interruptCycleAction(cycleId: string) {
+export function interruptCycleAction(cycleId: string | null) {
   return {
     type: ActionType.INTERRUPT_CYCLE,
     payload: {

@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-react", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:2.2.0"],\
             ["date-fns", "npm:2.29.3"],\
             ["eslint", "npm:8.29.0"],\
+            ["immer", "npm:9.0.17"],\
             ["phosphor-react", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:1.4.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:18.2.0"],\
@@ -63,6 +64,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-react", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:2.2.0"],\
             ["date-fns", "npm:2.29.3"],\
             ["eslint", "npm:8.29.0"],\
+            ["immer", "npm:9.0.17"],\
             ["phosphor-react", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:1.4.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:e8816d043533f0e71d0e475aa9c40ac03181b60b2e4fbb1ffa9049f076573be3f896a9f6cc7f995765281fed08cac40c4adef76c83de106b1d77c19f88b28afa#npm:18.2.0"],\
@@ -3208,6 +3210,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/ignore-npm-5.2.1-208dc99ae8-7251d00cba.zip/node_modules/ignore/",\
           "packageDependencies": [\
             ["ignore", "npm:5.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["immer", [\
+        ["npm:9.0.17", {\
+          "packageLocation": "./.yarn/cache/immer-npm-9.0.17-7ff1f414fd-046d562b74.zip/node_modules/immer/",\
+          "packageDependencies": [\
+            ["immer", "npm:9.0.17"]\
           ],\
           "linkType": "HARD"\
         }]\
