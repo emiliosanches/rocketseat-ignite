@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useReducer, useState } from "react";
+import { ActionType, cyclesReducer } from "../reducer/cycles";
 
 export interface Cycle {
   id: string;
@@ -27,11 +28,6 @@ interface ICyclesContext {
 
 export const CyclesContext = createContext({} as ICyclesContext);
 
-interface CyclesState {
-  cycles: Cycle[];
-  activeCycleId: string | null;
-}
-
 interface CyclesContextProviderProps {
   children: ReactNode;
 }
@@ -40,40 +36,7 @@ export function CyclesContextProvider({
   children,
 }: CyclesContextProviderProps) {
   const [cyclesState, dispatch] = useReducer(
-    (state: CyclesState, action: any) => {
-      switch (action.type) {
-        case "ADD_NEW_CYCLE":
-          return {
-            ...state,
-            cycles: [...state.cycles, action.payload.newCycle],
-            activeCycleId: action.payload.newCycle.id
-          };
-        case "MARK_CYCLE_AS_FINISHED":
-          return {
-            ...state,
-            cycles: state.cycles.map((cycle) => {
-              if (cycle.id === action.payload.cycleId) {
-                return { ...cycle, finishedAt: new Date() };
-              }
-              return cycle;
-            }),
-            activeCycleId: null
-          };
-        case "INTERRUPT_CYCLE":
-          return {
-            ...state,
-            cycles: state.cycles.map((cycle) => {
-              if (cycle.id === action.payload.cycleId) {
-                return { ...cycle, interruptedAt: new Date() };
-              }
-              return cycle;
-            }),
-            activeCycleId: null
-          };
-      }
-
-      return state;
-    },
+    cyclesReducer,
     { cycles: [], activeCycleId: null }
   );
   
@@ -89,7 +52,7 @@ export function CyclesContextProvider({
 
   function markActiveCycleAsFinished() {
     dispatch({
-      type: "MARK_CYCLE_AS_FINISHED",
+      type: ActionType.MARK_CYCLE_AS_FINISHED,
       payload: {
         cycleId: activeCycleId,
       },
@@ -105,7 +68,7 @@ export function CyclesContextProvider({
     };
 
     dispatch({
-      type: "ADD_NEW_CYCLE",
+      type: ActionType.ADD_NEW_CYCLE,
       payload: {
         newCycle,
       },
@@ -116,7 +79,7 @@ export function CyclesContextProvider({
 
   function interruptCurrentCycle() {
     dispatch({
-      type: "INTERRUPT_CYCLE",
+      type: ActionType.INTERRUPT_CYCLE,
       payload: {
         cycleId: activeCycleId,
       },
