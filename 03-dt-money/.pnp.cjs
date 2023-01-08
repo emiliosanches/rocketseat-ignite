@@ -28,6 +28,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@hookform/resolvers", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:2.9.10"],\
             ["@radix-ui/react-dialog", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:1.0.2"],\
             ["@radix-ui/react-radio-group", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:1.1.0"],\
             ["@types/react", "npm:18.0.26"],\
@@ -38,10 +39,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["phosphor-react", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:1.4.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:18.2.0"],\
+            ["react-hook-form", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:7.41.5"],\
             ["react-is", "npm:18.2.0"],\
             ["styled-components", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:5.3.6"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
-            ["vite", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:4.0.4"]\
+            ["vite", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:4.0.4"],\
+            ["zod", "npm:3.20.2"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -51,6 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["03-dt-money", "workspace:."],\
+            ["@hookform/resolvers", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:2.9.10"],\
             ["@radix-ui/react-dialog", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:1.0.2"],\
             ["@radix-ui/react-radio-group", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:1.1.0"],\
             ["@types/react", "npm:18.0.26"],\
@@ -61,10 +65,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["phosphor-react", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:1.4.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:18.2.0"],\
+            ["react-hook-form", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:7.41.5"],\
             ["react-is", "npm:18.2.0"],\
             ["styled-components", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:5.3.6"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
-            ["vite", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:4.0.4"]\
+            ["vite", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:4.0.4"],\
+            ["zod", "npm:3.20.2"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -484,6 +490,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@gar-promisify-npm-1.1.3-ac1a325862-4059f790e2.zip/node_modules/@gar/promisify/",\
           "packageDependencies": [\
             ["@gar/promisify", "npm:1.1.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@hookform/resolvers", [\
+        ["npm:2.9.10", {\
+          "packageLocation": "./.yarn/cache/@hookform-resolvers-npm-2.9.10-940efb71c1-ae3395372d.zip/node_modules/@hookform/resolvers/",\
+          "packageDependencies": [\
+            ["@hookform/resolvers", "npm:2.9.10"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:2.9.10", {\
+          "packageLocation": "./.yarn/__virtual__/@hookform-resolvers-virtual-674efd0add/0/cache/@hookform-resolvers-npm-2.9.10-940efb71c1-ae3395372d.zip/node_modules/@hookform/resolvers/",\
+          "packageDependencies": [\
+            ["@hookform/resolvers", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:2.9.10"],\
+            ["@types/react-hook-form", null],\
+            ["react-hook-form", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:7.41.5"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-hook-form",\
+            "react-hook-form"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3307,6 +3335,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-hook-form", [\
+        ["npm:7.41.5", {\
+          "packageLocation": "./.yarn/cache/react-hook-form-npm-7.41.5-202ce9fe72-ca28b2deb4.zip/node_modules/react-hook-form/",\
+          "packageDependencies": [\
+            ["react-hook-form", "npm:7.41.5"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:7.41.5", {\
+          "packageLocation": "./.yarn/__virtual__/react-hook-form-virtual-6e5fbe3368/0/cache/react-hook-form-npm-7.41.5-202ce9fe72-ca28b2deb4.zip/node_modules/react-hook-form/",\
+          "packageDependencies": [\
+            ["react-hook-form", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:7.41.5"],\
+            ["@types/react", "npm:18.0.26"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-is", [\
         ["npm:16.13.1", {\
           "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-f7a19ac349.zip/node_modules/react-is/",\
@@ -4075,6 +4125,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yargs-parser-npm-21.1.1-8fdc003314-ed2d96a616.zip/node_modules/yargs-parser/",\
           "packageDependencies": [\
             ["yargs-parser", "npm:21.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["zod", [\
+        ["npm:3.20.2", {\
+          "packageLocation": "./.yarn/cache/zod-npm-3.20.2-faa0b46f24-04172f7e93.zip/node_modules/zod/",\
+          "packageDependencies": [\
+            ["zod", "npm:3.20.2"]\
           ],\
           "linkType": "HARD"\
         }]\
