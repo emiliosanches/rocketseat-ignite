@@ -36,6 +36,8 @@ export const SummaryCard = styled.div<SummaryCardProps>`
 
     svg {
       color: ${(props) => props.theme[props.iconColor]};
+      width: 2rem;
+      height: 2rem;
     }
   }
 

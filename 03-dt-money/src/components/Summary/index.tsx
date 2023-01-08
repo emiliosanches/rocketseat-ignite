@@ -28,7 +28,7 @@ export function Summary() {
       <SummaryCard iconColor='green-300'>
         <header>
           <span>Entradas</span>
-          <ArrowCircleUp size={32}/>
+          <ArrowCircleUp />
         </header>
 
         <strong>{priceFormatter.format(summary.income)}</strong>
@@ -36,7 +36,7 @@ export function Summary() {
       <SummaryCard iconColor='red-300'>
         <header>
           <span>Saídas</span>
-          <ArrowCircleDown size={32}/>
+          <ArrowCircleDown />
         </header>
 
         <strong>{priceFormatter.format(summary.outcome)}</strong>
@@ -44,7 +44,7 @@ export function Summary() {
       <SummaryCard iconColor='white' backgroundColor='green-700'>
         <header>
           <span>Total</span>
-          <CurrencyCircleDollar size={32}/>
+          <CurrencyCircleDollar />
         </header>
 
         <strong>{priceFormatter.format(summary.total)}</strong>
