@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { defaultTheme } from "../../styles/themes/default";
+import styled from 'styled-components'
+import { defaultTheme } from '../../styles/themes/default'
 
 export const SummaryContainer = styled.section`
   width: 100%;
@@ -16,15 +16,15 @@ export const SummaryContainer = styled.section`
   gap: 2rem;
 
   margin-top: -5rem;
-`;
+`
 
 interface SummaryCardProps {
-  iconColor: keyof typeof defaultTheme;
-  backgroundColor?: keyof typeof defaultTheme;
+  iconColor: keyof typeof defaultTheme
+  backgroundColor?: keyof typeof defaultTheme
 }
 
 export const SummaryCard = styled.div<SummaryCardProps>`
-  background: ${(props) => props.theme[props.backgroundColor || "gray-600"]};
+  background: ${(props) => props.theme[props.backgroundColor || 'gray-600']};
   border-radius: 6p;
   padding: 2rem;
 
@@ -32,7 +32,7 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: ${(props) => props.theme["gray-300"]};
+    color: ${(props) => props.theme['gray-300']};
 
     svg {
       color: ${(props) => props.theme[props.iconColor]};
@@ -46,4 +46,4 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     margin-top: 1rem;
     font-size: 2rem;
   }
-`;
+`
