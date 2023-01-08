@@ -20,13 +20,13 @@ export function Transactions() {
               <td>07/01/2023</td>
             </tr>
             <tr>
-              <td width="45%">Aluguel do apartamento</td>
+              <td width="45%">Hambúrguer</td>
               <td><PriceHighlight variant='outcome'>- R$ 59,00</PriceHighlight></td>
               <td>Alimentação</td>
               <td>07/01/2023</td>
             </tr>
             <tr>
-              <td width="45%">Desenvolvimento de site</td>
+              <td width="45%">Aluguel do apartamento</td>
               <td><PriceHighlight variant='outcome'>- R$ 1.200,00</PriceHighlight></td>
               <td>Casa</td>
               <td>10/01/2023</td>
