@@ -32,6 +32,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.0.10"],\
             ["@types/styled-components", "npm:5.1.26"],\
             ["@vitejs/plugin-react-swc", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:3.0.1"],\
+            ["phosphor-react", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:1.4.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:18.2.0"],\
             ["react-is", "npm:18.2.0"],\
@@ -51,6 +52,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.0.10"],\
             ["@types/styled-components", "npm:5.1.26"],\
             ["@vitejs/plugin-react-swc", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:3.0.1"],\
+            ["phosphor-react", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:1.4.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:18.2.0"],\
             ["react-is", "npm:18.2.0"],\
@@ -1732,6 +1734,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/path-parse-npm-1.0.7-09564527b7-49abf3d811.zip/node_modules/path-parse/",\
           "packageDependencies": [\
             ["path-parse", "npm:1.0.7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["phosphor-react", [\
+        ["npm:1.4.1", {\
+          "packageLocation": "./.yarn/cache/phosphor-react-npm-1.4.1-a39b349d8f-94aa316eca.zip/node_modules/phosphor-react/",\
+          "packageDependencies": [\
+            ["phosphor-react", "npm:1.4.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:1.4.1", {\
+          "packageLocation": "./.yarn/__virtual__/phosphor-react-virtual-66abb9d432/0/cache/phosphor-react-npm-1.4.1-a39b349d8f-94aa316eca.zip/node_modules/phosphor-react/",\
+          "packageDependencies": [\
+            ["phosphor-react", "virtual:454dd30d9cb785738b1874f8a4fe5f1e90a1db3fd016ca4b461158be7d3a4c4dd1ac5cd40b318a5fa6f6212e170612cabf7b963eef2b0ed84a753cff34a445da#npm:1.4.1"],\
+            ["@types/react", "npm:18.0.26"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
